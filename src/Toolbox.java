@@ -26,7 +26,7 @@ public class Toolbox {
 
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            String[] headers = {"#times", "event_counts", "pop_size"};
+            String[] headers = {"times", "event_counts", "pop_size"};
             int string_length = Math.max(12, Toolbox.largestHeaderLength(headers)+3);
 
             String head_start = "#"+headers[0]+",";

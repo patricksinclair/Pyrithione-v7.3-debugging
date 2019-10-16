@@ -344,7 +344,7 @@ public class BioSystem {
         //run 1 microhab for 100 hours, do 16 reps and average them
         int initial_pop = 5;
         double duration = 100.;
-        int nreps = 16;
+        int nreps = 4;
         int nmeasurements = 50;
         double interval = duration/nmeasurements;
 
@@ -379,7 +379,7 @@ public class BioSystem {
 
         while(bs.time_elapsed <= duration+0.2*interval){
 
-            if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
+            if(bs.time_elapsed%interval < tau_step && !alreadyRecorded){
                 System.out.println("replication -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
                 //todo - get correct counter here
@@ -441,7 +441,7 @@ public class BioSystem {
 
         while(bs.time_elapsed <= duration+0.2*interval){
 
-            if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
+            if(bs.time_elapsed%interval < tau_step && !alreadyRecorded){
                 System.out.println("death -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
                 //todo - get correct counter here
@@ -502,7 +502,7 @@ public class BioSystem {
 
         while(bs.time_elapsed <= duration+0.2*interval){
 
-            if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
+            if(bs.time_elapsed%interval < tau_step && !alreadyRecorded){
                 System.out.println("immigration -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
                 //todo - get correct counter here
@@ -563,7 +563,7 @@ public class BioSystem {
 
         while(bs.time_elapsed <= duration+0.2*interval){
 
-            if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
+            if(bs.time_elapsed%interval < tau_step && !alreadyRecorded){
                 System.out.println("deterioration -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
                 //todo - get correct counter here
