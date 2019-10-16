@@ -338,13 +338,12 @@ public class BioSystem {
 
 
 
-    public static void debugReplications(double tau_val){
+    public static void debugReplications(double tau_val, int nreps){
         long startTime = System.currentTimeMillis();
         //method used to debug the replication events
         //run 1 microhab for 100 hours, do 16 reps and average them
         int initial_pop = 5;
         double duration = 100.;
-        int nreps = 16;
         int nmeasurements = 50;
         double interval = duration/nmeasurements;
 
@@ -398,14 +397,13 @@ public class BioSystem {
 
 
 
-    public static void debugDeaths(double tau_val){
+    public static void debugDeaths(double tau_val, int nreps){
         long startTime = System.currentTimeMillis();
         //method used to debug the replication events
         //run 1 microhab for 100 hours, do 10 reps and average them
         //todo make sure correct pop used
         int initial_pop = 120;
         double duration = 100.;
-        int nreps = 16;
         int nmeasurements = 50;
         double interval = duration/nmeasurements;
 
@@ -459,14 +457,13 @@ public class BioSystem {
     }
 
 
-    public static void debugImmigration(double tau_val){
+    public static void debugImmigration(double tau_val, int nreps){
         long startTime = System.currentTimeMillis();
         //method used to debug the replication events
         //run 1 microhab for 100 hours, do 10 reps and average them
         //todo make sure correct pop used
         int initial_pop = 5;
         double duration = 100.;
-        int nreps = 16;
         int nmeasurements = 50;
         double interval = duration/nmeasurements;
 
@@ -520,14 +517,13 @@ public class BioSystem {
     }
 
 
-    public static void debugDeterioration(double tau_val){
+    public static void debugDeterioration(double tau_val, int nreps){
         long startTime = System.currentTimeMillis();
         //method used to debug the replication events
         //run 1 microhab for 100 hours, do 10 reps and average them
         //todo make sure correct pop used
         int initial_pop = 120;
         double duration = 100.;
-        int nreps = 16;
         int nmeasurements = 50;
         double interval = duration/nmeasurements;
 
