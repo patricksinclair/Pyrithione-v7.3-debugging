@@ -382,6 +382,7 @@ public class BioSystem {
             if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
                 System.out.println("replication -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
+                //todo - get correct counter here
                 event_counts[sampleCounter] = bs.n_replications;
                 pop_sizes[sampleCounter] = bs.getTotalN();
 
@@ -443,7 +444,8 @@ public class BioSystem {
             if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
                 System.out.println("death -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
-                event_counts[sampleCounter] = bs.n_replications;
+                //todo - get correct counter here
+                event_counts[sampleCounter] = bs.n_deaths;
                 pop_sizes[sampleCounter] = bs.getTotalN();
 
                 alreadyRecorded = true;
@@ -503,7 +505,8 @@ public class BioSystem {
             if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
                 System.out.println("immigration -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
-                event_counts[sampleCounter] = bs.n_replications;
+                //todo - get correct counter here
+                event_counts[sampleCounter] = bs.n_immigrations;
                 pop_sizes[sampleCounter] = bs.getTotalN();
 
                 alreadyRecorded = true;
@@ -563,7 +566,8 @@ public class BioSystem {
             if(bs.time_elapsed%interval < 0.01 && !alreadyRecorded){
                 System.out.println("deterioration -- "+"\ttau: "+tau_step+"\trep: "+i+"\tt: "+bs.time_elapsed+"\tpop_size: "+bs.getTotalN());
                 times[sampleCounter] = bs.time_elapsed;
-                event_counts[sampleCounter] = bs.n_replications;
+                //todo - get correct counter here
+                event_counts[sampleCounter] = bs.n_detachments;
                 pop_sizes[sampleCounter] = bs.getTotalN();
 
                 alreadyRecorded = true;
