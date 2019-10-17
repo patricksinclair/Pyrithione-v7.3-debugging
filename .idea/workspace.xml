@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2383ae77-3e94-4f78-9941-c8ebe44111cd" name="Default" comment="" />
+    <list default="true" id="2383ae77-3e94-4f78-9941-c8ebe44111cd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyrithioneMain.java" afterPath="$PROJECT_DIR$/src/PyrithioneMain.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PyrithioneMain.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PyrithioneMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PyrithioneMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -32,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BioSystem.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BioSystem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BioSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6354">
-              <caret line="367" column="0" lean-forward="true" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="361" column="8" lean-forward="true" selection-start-line="361" selection-start-column="8" selection-end-line="364" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/Microhabitat.java" />
         <option value="$PROJECT_DIR$/src/compiler_script.txt" />
         <option value="$PROJECT_DIR$/src/Toolbox.java" />
-        <option value="$PROJECT_DIR$/src/PyrithioneMain.java" />
         <option value="$PROJECT_DIR$/src/BioSystem.java" />
+        <option value="$PROJECT_DIR$/src/PyrithioneMain.java" />
       </list>
     </option>
   </component>
@@ -392,14 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PyrithioneMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Microhabitat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -410,11 +404,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BioSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6354">
-          <caret line="367" column="0" lean-forward="true" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="361" column="8" lean-forward="true" selection-start-line="361" selection-start-column="8" selection-end-line="364" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PyrithioneMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

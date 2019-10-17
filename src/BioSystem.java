@@ -147,10 +147,11 @@ public class BioSystem {
                 for(int bac_index = 0; bac_index < mh_pop; bac_index++){
 
                     double g_rate = microhabitats.get(mh_index).replicationRate(bac_index);
-                    if(g_rate == 0.) {
-                        n_replications[bac_index] = 0;
-                    } else {
+                    if(g_rate > 0.) {
                         n_replications[bac_index] = new PoissonDistribution(g_rate*tau_step).sample();
+
+                    } else {
+                        n_replications[bac_index] = 0;
                     }
                 }
 
