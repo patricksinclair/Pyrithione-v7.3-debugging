@@ -148,7 +148,9 @@ public class BioSystem {
 
                     double g_rate = microhabitats.get(mh_index).replicationRate(bac_index);
                     if(g_rate > 0.) {
-                        n_replications[bac_index] = new PoissonDistribution(g_rate*tau_step).sample();
+                        PoissonDistribution poss = new PoissonDistribution(g_rate*tau_step);
+                        poss.reseedRandomGenerator(rand.nextLong());
+                        n_replications[bac_index] = poss.sample();
 
                     } else {
                         n_replications[bac_index] = 0;
@@ -198,7 +200,9 @@ public class BioSystem {
                     if(d_rate == 0.) {
                         n_deaths[bac_index] = 0;
                     } else {
-                        n_deaths[bac_index] = new PoissonDistribution(d_rate*tau_step).sample();
+                        PoissonDistribution poss = new PoissonDistribution(d_rate*tau_step);
+                        poss.reseedRandomGenerator(rand.nextLong());
+                        n_deaths[bac_index] = poss.sample();
 
                         if(n_deaths[bac_index] > 1) {
                             tau_step /= 2.;
@@ -227,6 +231,23 @@ public class BioSystem {
     }
 
 
+
+    public void performAction_immigration(){
+        //only allows for immigration
+        double tau_step = tau;
+        int n_immigrants;
+
+        //todo -  make this one a global poisson distb
+        PoissonDistribution poiss = new PoissonDistribution(immigration_rate*tau_step);
+        poiss.reseedRandomGenerator(rand.nextLong());
+        n_immigrants = poiss.sample();
+        immigrate(immigration_index, n_immigrants);
+        n_immigrations += n_immigrants;
+        time_elapsed += tau_step;
+    }
+
+
+
     public void performAction_deterioration(){
         //only allows deterioration
         double tau_step = tau;
@@ -246,12 +267,15 @@ public class BioSystem {
                 for(int bac_index = 0; bac_index < mh_pop; bac_index++){
 
                     if(mh_index == immigration_index) {
-                        detachment_allocations[bac_index] = new PoissonDistribution(deterioration_rate*tau_step).sample();
+                        //todo make this a global poisson distb
+                        PoissonDistribution poiss = new PoissonDistribution(deterioration_rate*tau_step);
+                        poiss.reseedRandomGenerator(rand.nextLong());
+                        detachment_allocations[bac_index] = poiss.sample();
 
-//                        if(detachment_allocations[bac_index] > 1) {
-//                            tau_step /= 2.;
-//                            continue whileloop;
-//                        }
+                        if(detachment_allocations[bac_index] > 1) {
+                            tau_step /= 2.;
+                            continue whileloop;
+                        }
                     }
                 }
                 original_popsizes[mh_index] = mh_pop;
@@ -266,7 +290,7 @@ public class BioSystem {
                 if(mh_index == immigration_index) {
                     if(detachment_allocations[bac_index] != 0) {
                         microhabitats.get(mh_index).removeABacterium(bac_index);
-                        n_detachments++;
+                        //n_detachments++;
                     }
                 }
             }
@@ -276,19 +300,6 @@ public class BioSystem {
     }
 
 
-
-
-    public void performAction_immigration(){
-        //only allows for immigration
-        double tau_step = tau;
-        int n_immigrants;
-
-
-        n_immigrants = new PoissonDistribution(immigration_rate*tau_step).sample();
-        immigrate(immigration_index, n_immigrants);
-        n_immigrations += n_immigrants;
-        time_elapsed += tau_step;
-    }
 
 
 
@@ -349,7 +360,7 @@ public class BioSystem {
         double interval = duration/nmeasurements;
 
         String directoryName = "debugging";
-        String filename = String.format("replication_debugging_t=%.2f_initial_pop=%d_tau=%.3f", duration, initial_pop, tau_val);
+        String filename = String.format("replication_debugging_t=%.2f_initial_pop=%d_tau=%.3f-RESEEDED", duration, initial_pop, tau_val);
 
         Databox[] databoxes = new Databox[nreps];
         //todo make sure correct method here
@@ -410,7 +421,7 @@ public class BioSystem {
 
         String directoryName = "debugging";
         //todo - change name here
-        String filename = String.format("death_debugging_t=%.2f_initial_pop=%d_tau=%.3f", duration, initial_pop, tau_val);
+        String filename = String.format("death_debugging_t=%.2f_initial_pop=%d_tau=%.3f-RESEEDED", duration, initial_pop, tau_val);
 
         Databox[] databoxes = new Databox[nreps];
         //todo - make sure correct method here
@@ -470,7 +481,7 @@ public class BioSystem {
 
         String directoryName = "debugging";
         //todo - change name here
-        String filename = String.format("immigration_debugging_t=%.2f_initial_pop=%d_tau=%.3f", duration, initial_pop, tau_val);
+        String filename = String.format("immigration_debugging_t=%.2f_initial_pop=%d_tau=%.3f-RESEEDED", duration, initial_pop, tau_val);
 
         Databox[] databoxes = new Databox[nreps];
         //todo - make sure correct method here
@@ -530,7 +541,7 @@ public class BioSystem {
 
         String directoryName = "debugging";
         //todo - change name here
-        String filename = String.format("deterioration_debugging_t=%.2f_initial_pop=%d_tau=%.3f-reduced", duration, initial_pop, tau_val);
+        String filename = String.format("deterioration_debugging_t=%.2f_initial_pop=%d_tau=%.3f-RESEEDED", duration, initial_pop, tau_val);
 
         Databox[] databoxes = new Databox[nreps];
         //todo - make sure correct method here
@@ -574,6 +585,7 @@ public class BioSystem {
             //todo - make sure the correct method used here
             bs.performAction_deterioration();
         }
+        System.out.println("total detach: "+bs.n_detachments);
         return new Databox(tau_step, times, event_counts, pop_sizes);
     }
 
