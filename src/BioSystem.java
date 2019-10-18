@@ -248,10 +248,10 @@ public class BioSystem {
                     if(mh_index == immigration_index) {
                         detachment_allocations[bac_index] = new PoissonDistribution(deterioration_rate*tau_step).sample();
 
-                        if(detachment_allocations[bac_index] > 1) {
-                            tau_step /= 2.;
-                            continue whileloop;
-                        }
+//                        if(detachment_allocations[bac_index] > 1) {
+//                            tau_step /= 2.;
+//                            continue whileloop;
+//                        }
                     }
                 }
                 original_popsizes[mh_index] = mh_pop;
@@ -530,7 +530,7 @@ public class BioSystem {
 
         String directoryName = "debugging";
         //todo - change name here
-        String filename = String.format("deterioration_debugging_t=%.2f_initial_pop=%d_tau=%.3f", duration, initial_pop, tau_val);
+        String filename = String.format("deterioration_debugging_t=%.2f_initial_pop=%d_tau=%.3f-reduced", duration, initial_pop, tau_val);
 
         Databox[] databoxes = new Databox[nreps];
         //todo - make sure correct method here
